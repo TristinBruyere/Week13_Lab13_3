@@ -1,0 +1,18 @@
+<div>
+<h1>TODO List</h1>
+<h3>A place to store your todos</h3>
+
+<ng-container *ngFor="let todoitem of todolist">
+    <div>
+        Task: {{todoitem.task}} --- Completed: <div style="display: inline-block;" *ngIf="todoitem.completed">Finished</div> 
+        <div style="display: inline-block;" *ngIf="todoitem.completed == false">Unfinished </div> - 
+        <button (click)="todoitem.completed = true">Done</button> <button (click)="todoitem.completed = false">Not Done</button> - 
+        <button (click)="deleteTask(todoitem.task)">Delete</button>
+    </div>
+</ng-container>
+<br/>
+<h3>Add a task here:</h3>
+    <!-- add FormsModule to imports in app.module.ts to allow adding on to arrays -->
+<input type = "text" [(ngModel)]="newtask"/><br/>
+<button (click)="addTask()">add</button>
+</div>
